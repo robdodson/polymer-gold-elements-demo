@@ -34,8 +34,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <paper-input name="name" label="Name on card" required autocomplete="cc-name"></paper-input>
 
-      <gold-cc-input name="cc-number" required value="4000 0000 0000 0002"
-          auto-validate card-type="{{cardType}}"></gold-cc-input>
+      <gold-cc-input name="cc-number" required card-type="{{cardType}}"></gold-cc-input>
 
       <div class="horizontal layout">
         <gold-cc-expiration-input name="cc-expiration" required label="Expiration"></gold-cc-expiration-input>
