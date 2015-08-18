@@ -37,7 +37,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       width: 120px;
     }
 
-    .country {
+    .country, .cc-expiration {
       width: 260px;
       margin-right: 20px;
     }
@@ -66,31 +66,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <form is="iron-form" id="form">
 
       <h4>Quantity: <paper-input name="quantity" class="quantity" value="1" type="number"></paper-input></h4>
-      <h4>Contact Information</h4>
+      <h4>Billing / Shipping Information</h4>
 
       <paper-input name="name" label="Name" required auto-validate autocomplete="name"></paper-input>
       <paper-input name="address" label="Address" required auto-validate autocomplete="street-address"></paper-input>
       <gold-email-input name="email" class="flex" required auto-validate></gold-email-input>
       <gold-phone-input name="phone" class="flex" required auto-validate></gold-phone-input>
+      <div class="horizontal layout">
+        <paper-input name="country" class="country" label="Country" placeholder="United States" autocomplete="country-name" required auto-validate></paper-input>
+        <gold-zip-input name"mail-zip" required auto-validate></gold-zip-input>
+      </div>
 
       <h4>Payment</h4>
 
+      <paper-input name="cc-name" label="Name as it appears on card" required auto-validate autocomplete="cc-name"></paper-input>
       <gold-cc-input name="cc" required auto-validate
-          value="4000 0000 0000 0002"
-          label="Sample Valid VISA number"
-          card-type="{{cardType}}">
-      </gold-cc-input>
-
-      <div class="horizontal layout wrap">
-        <gold-cc-expiration-input name="cc-expiration" required auto-validate></gold-cc-expiration-input>
+        card-type="{{cardType}}"></gold-cc-input>
+      <div class="horizontal layout">
+        <gold-cc-expiration-input name="cc-expiration" class="cc-expiration" required auto-validate></gold-cc-expiration-input>
         <gold-cc-cvc-input name="cc-cvc" required auto-validate card-type="[[cardType]]"></gold-cc-cvc-input>
-        <gold-zip-input name="zip" required auto-validate></gold-zip-input>
-      </div>
-
-      <h4>Shipping</h4>
-      <div class="horizontal layout wrap">
-        <paper-input name="country" class="country" label="Country" placeholder="United States" required auto-validate></paper-input>
-        <gold-zip-input name"mail-zip" required auto-validate></gold-zip-input>
       </div>
 
       <paper-button on-click="_submit">Pay</paper-button>
